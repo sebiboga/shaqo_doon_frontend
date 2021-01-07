@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
+import Header from './components/Header';
 import Menu from './components/Menu';
 import Welcome from './pages/Welcome';
-import AllJobs from './pages/AllJobs';
+import Jobs from './pages/Jobs';
 import Companies from './pages/Companies';
 import Error404 from './pages/Error404';
 
@@ -13,13 +14,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <Link to='/'>
-        <h1>Shaqo</h1>
-      </Link>
+      <Header />
       <Menu />
       <Switch>
         <Route exact path='/' render={() => <Welcome />} />
-        <Route exact path='/jobs/' render={() => <AllJobs />} />
+        <Route exact path='/jobs/' render={() => <Jobs />} />
+        <Route exact path='/jobs/:company' render={() => <Jobs />} />
         <Route exact path='/companies' render={() => <Companies />} />
         <Route path='*' render={() => <Error404 />} />
       </Switch>

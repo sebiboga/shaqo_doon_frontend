@@ -7,7 +7,6 @@ export const getAllCompanies = () => async dispatch => {
             method: 'GET',
             url: '/companies/',
         })
-        console.log(response.data.companies);
         dispatch({
             type: companiesTypes.GET_COMPANIES,
             payload: response.data.companies
@@ -15,4 +14,11 @@ export const getAllCompanies = () => async dispatch => {
     } catch (error) {
 
     }
+}
+
+export const selectCompany = (company) => dispatch => {
+    dispatch({
+        type: companiesTypes.SELECT_COMPANY,
+        payload: company
+    });
 }

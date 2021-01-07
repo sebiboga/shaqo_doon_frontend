@@ -3,14 +3,15 @@ import './Menu.scss';
 
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ jobs, getAllJobs }) => {
 
     return (
         <div className="menu">
-            <Link to='/jobs'>Jobs</Link>
+            <Link to='/jobs' jobs={'allJobs'} title='some title'>Jobs</Link>
             <Link to='/companies'>Companies</Link>
         </div>
     );
 };
+
 
 export default Header;

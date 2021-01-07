@@ -18,15 +18,19 @@ const Companies = ({ companies, getAllCompanies }) => {
 
     return (
         <div className="companies">
-            {console.log(companies)}
-            Companies
-            <Company />
+            {companies ? companies.map(({ company, link }) =>
+                <Company
+                    key={company ? company : Math.random()}
+                    company={company}
+                    link={link}
+                />
+            ) : null}
         </div>
     );
 };
 
 const mapStateToProsp = ({ companies }) => ({
-    companies,
+    companies: companies.all,
 })
 
 const mapDispatchToProps = dispatch => ({

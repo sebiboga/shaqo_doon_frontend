@@ -1,5 +1,6 @@
 {
   "name": "shaqo_doon_frontend",
+  "homepage": "http://zimbor.go.ro/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
