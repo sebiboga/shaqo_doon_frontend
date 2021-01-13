@@ -3,27 +3,39 @@ import './Jobs.scss';
 
 import { connect } from 'react-redux';
 import { getAllJobs } from '../redux/jobs/jobs.actions';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 import Job from '../components/Job';
 
 const AllJobs = ({ jobs, getAllJobs, selectedCompany }) => {
 
     const [loading, setLoading] = useState(true);
+    const [displayJobs, setDisplayJobs] = useState([]);
 
     const params = useParams();
-    console.log(params)
+    const location = useLocation();
+
+    const checkCompany = () => {
+        let path = location.pathname;
+        path = path.replace(/\/jobs\//i, '');
+        path = path.replace(/\/jobs/i, '');
+
+        if (path.includes('/')) { path = path.slice(0, path.length - 1) }
+
+        return path
+    }
 
     useEffect(() => {
-        if (jobs === null) {
-            getAllJobs();
-            setLoading(false)
+        if (checkCompany()) {
+            console.log('company')
         } else {
-            setLoading(false)
+            getAllJobs();
+            setDisplayJobs(jobs);
+            setLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    console.log(loading)
+    // console.log(loading)
     if (loading) {
         return (
             <span>loading...</span>
