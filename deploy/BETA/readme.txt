@@ -3,3 +3,4 @@ http://zimbor.go.ro/
 the UI for the project
 Requirements: https://github.com/sebiboga/shaqo_doon_frontend/wiki/Requirements-for-MVP
 confirmation from QA team is needed
+.
