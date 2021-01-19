@@ -9,7 +9,7 @@ const Comapny = ({ company }) => {
 
     const handleClick = () => {
         // selectCompany(company);
-        history.push(`/jobs/${company}`)
+        history.push(`/jobs/${company.replace(/ /g, '-')}`)
     }
 
     return (

@@ -4,7 +4,7 @@ import './Jobs.scss';
 import { connect } from 'react-redux';
 import { getAllJobs, getJobsCompany } from '../redux/jobs/jobs.actions';
 import { getAllCompanies } from '../redux/companies/companies.actions';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import Job from '../components/Job';
 
@@ -13,21 +13,8 @@ const AllJobs = ({ jobs, getAllJobs, companies, getJobsCompany, jobsCompany, get
     const [loading, setLoading] = useState(true);
     const [isComapaniesLoaded, setIsCompaniesLoaded] = useState(false);
 
-    const location = useLocation();
     const history = useHistory();
-
-    // if client access url /jobs/company, it get the name og the company from url
-    const checkCompany = () => {
-        let path = location.pathname;
-        path = path.replace(/\/jobs\//i, ''); // remove '/jobs/' if exist
-        path = path.replace(/\/jobs/i, ''); // remove '/jobs' if exist
-
-        if (path.includes('/')) { path = path.slice(0, path.length - 1) };
-
-
-        // return name on the company from url
-        return path;
-    }
+    const params = useParams();
 
     useEffect(() => {
         if (!companies) {
@@ -42,17 +29,23 @@ const AllJobs = ({ jobs, getAllJobs, companies, getJobsCompany, jobsCompany, get
     useEffect(() => {
         // check if the companies are loaded, if not, wait
         if (isComapaniesLoaded) {
-            // get the name of the company from urk
-            const selectedCompany = checkCompany();
-            if (selectedCompany) {
+            if (params.company) {
                 let companySelected;
                 // get the api from all jobs from this company
-                companies ? companySelected = companies.filter(company => company.company === selectedCompany) : console.log('empty')
+                companies ?
+                    companySelected = companies.filter(
+                        // check if there is any company based on the company name from url
+                        company => company.company === params.company ||
+                            // check if there is any company based on the company name from url after replacing '-' with ' '
+                            company.company === params.company.replace(/-/g, ' ')
+                    ) : console.log('empty')
                 companySelected.length ?
                     // if comapny exist show jobs
                     getJobsCompany({ api: companySelected[0].link, cb: () => { setLoading(false) } })
                     // if company do not exist redirect to companies page
-                    : history.push('/companies')
+                    :
+                    history.push('/companies')
+                // console.log()
             } else {
                 getAllJobs(() => { setLoading(false) });
             }
