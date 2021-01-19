@@ -43,15 +43,27 @@ const AllJobs = ({ jobs, getAllJobs, companies, getJobsCompany, jobsCompany, get
                     // if comapny exist show jobs
                     getJobsCompany({ api: companySelected[0].link, cb: () => { setLoading(false) } })
                     // if company do not exist redirect to companies page
-                    :
-                    history.push('/companies')
-                // console.log()
+                    : history.push('/companies')
             } else {
                 getAllJobs(() => { setLoading(false) });
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isComapaniesLoaded])
+
+    const renderJobs = (theJobs) => {
+        return theJobs.map(({ company, title, city, country, link }) => {
+            return (<Job
+                key={`${link} ${Math.random()}`}
+                company={company}
+                title={title}
+                city={city}
+                country={country}
+                link={link}
+            />)
+        }
+        )
+    }
 
     if (loading) {
         // console.log('loading')
@@ -63,30 +75,11 @@ const AllJobs = ({ jobs, getAllJobs, companies, getJobsCompany, jobsCompany, get
             <div className="jobs">
                 {/* All jobs */}
                 {/* I have to somehow DRY this */}
-                {jobsCompany ?
-                    jobsCompany.map(({ company, title, city, country, link }) => {
-
-                        return (<Job
-                            key={`${link} ${Math.random()}`}
-                            company={company}
-                            title={title}
-                            city={city}
-                            country={country}
-                            link={link}
-                        />)
-                    }
-                    )
-
-                    : jobs.map(({ company, title, city, country, link }) =>
-                        <Job
-                            key={`${link} ${Math.random()}`}
-                            company={company}
-                            title={title}
-                            city={city}
-                            country={country}
-                            link={link}
-                        />
-                    )}
+                {params.company ?
+                    renderJobs(jobsCompany)
+                    :
+                    renderJobs(jobs)
+                }
             </div>
         )
     }

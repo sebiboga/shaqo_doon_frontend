@@ -3,7 +3,7 @@ import './Menu.scss';
 
 import { Link } from 'react-router-dom';
 
-const Header = ({ jobs, getAllJobs }) => {
+const Header = () => {
 
     return (
         <div className="menu">
