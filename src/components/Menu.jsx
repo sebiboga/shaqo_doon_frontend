@@ -3,15 +3,23 @@ import './Menu.scss';
 
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+import { connect } from 'react-redux';
+import { setIsLoading } from '../redux/helpers/helpers.actions';
+
+
+const Header = ({ setIsLoading }) => {
 
     return (
         <div className="menu">
-            <Link to='/jobs' jobs={'allJobs'} title='some title'>Jobs</Link>
+            <Link to='/jobs' jobs={'allJobs'} title='some title' onClick={() => setIsLoading(true)}>Jobs</Link>
             <Link to='/companies'>Companies</Link>
         </div>
     );
 };
 
+const mapDispatcToProps = dispatch => ({
+    setIsLoading: (bool) => dispatch(setIsLoading(bool)),
+})
 
-export default Header;
+
+export default connect(null, mapDispatcToProps)(Header);
