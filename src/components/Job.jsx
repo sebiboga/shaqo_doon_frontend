@@ -16,7 +16,7 @@ const Job = ({ company, title, city, country, link }) => {
                 </div>
                 <div className="location">
                     <img src={locationLogo} alt="" />
-                    <p>{`${city}, ${country}`}</p>
+                    <p>{city}, {country}</p>
                 </div>
             </div>
 

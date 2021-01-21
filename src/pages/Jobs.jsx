@@ -55,10 +55,8 @@ const AllJobs = (
                     : history.push('/companies')
             } else {
                 if (jobs) {
-                    console.log(1)
                     setIsLoading(false)
                 } else {
-                    console.log(2)
                     getAllJobs(() => { setIsLoading(false) });
                 }
             }
