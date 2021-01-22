@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './Header.scss';
 
 import logo from '../assets/images/shaqo doon logo.png';
+import loading from '../assets/gif/loading 2.gif';
 
 import { connect } from 'react-redux';
 import { getTotal } from '../redux/total/total.actions';
@@ -22,8 +23,8 @@ const Header = ({ getTotal, total }) => {
             </Link>
             <p className='moto'>One place for all jobs</p>
             <div className="total">
-                <p className="jobs"><span className='white'>{total ? total.jobs : 0} </span>  job-uri</p>
-                <p className="t-companies"><span className='white'>{total ? total.companies : 0} </span>  companii</p>
+                <p className="jobs"><span className='white'>{total ? total.jobs : <img src={loading} alt='shaqo doon loading' />} </span>  job-uri</p>
+                <p className="t-companies"><span className='white'>{total ? total.companies : <img src={loading} alt='shaqo doon loading' />} </span>  companii</p>
             </div>
         </div>
     );
