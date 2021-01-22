@@ -18,11 +18,12 @@ const Companies = ({ companies, getAllCompanies }) => {
 
     return (
         <div className="companies">
-            {companies ? companies.map(({ company, link }) =>
+            {companies ? companies.map(({ company, link, jobs }) =>
                 <Company
                     key={company ? company : Math.random()}
                     company={company}
                     link={link}
+                    jobs={jobs}
                 />
             ) : null}
         </div>

@@ -3,7 +3,7 @@ import './Company.scss';
 
 import { useHistory } from 'react-router-dom';
 
-const Comapny = ({ company }) => {
+const Comapny = ({ company, jobs }) => {
 
     const history = useHistory();
 
@@ -15,6 +15,7 @@ const Comapny = ({ company }) => {
     return (
         <div className="company-tab" onClick={handleClick}>
             <h1>{company}</h1>
+            <span className='jobs-company'>({jobs})</span>
         </div>
     );
 };
