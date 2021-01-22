@@ -12,7 +12,7 @@ const Header = ({ setIsLoading }) => {
     return (
         <div className="menu">
             <Link to='/jobs' jobs={'allJobs'} title='some title' onClick={() => setIsLoading(true)}>Jobs</Link>
-            <Link to='/companies'>Companies</Link>
+            <Link to='/companies' onClick={() => setIsLoading(true)}>Companies</Link>
         </div>
     );
 };

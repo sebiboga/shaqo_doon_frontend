@@ -7,6 +7,8 @@ import { getAllJobs, getJobsCompany } from '../redux/jobs/jobs.actions';
 import { getAllCompanies } from '../redux/companies/companies.actions';
 import { setIsLoading } from '../redux/helpers/helpers.actions';
 
+import loading from '../assets/gif/loading 2.gif';
+
 import Job from '../components/Job';
 
 const AllJobs = (
@@ -87,7 +89,9 @@ const AllJobs = (
     if (isLoading) {
         // console.log('loading')
         return (
-            <span>loading...</span>
+            <div className="loading">
+                <img src={loading} alt="shaqo doon loading" />
+            </div>
         );
     } else {
         return (
