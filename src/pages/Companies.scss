@@ -9,8 +9,9 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 1000px) {
-    body {
-      background-color: blue;
+@media screen and (max-width: 600px) {
+    .companies{
+        grid-template-columns: 1fr 1fr;
+        width: 100%
     }
-  }
+}
