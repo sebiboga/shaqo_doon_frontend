@@ -21,9 +21,9 @@ const Header = ({ getTotal, total }) => {
             <Link to='/'>
                 <img src={logo} alt="shaqo doon logo" />
             </Link>
-            <p className='moto'>Un singur loc pentru toate locurile de munca</p>
+            <p className='moto'>Un singur loc pentru toate locurile de muncă</p>
             <div className="total">
-                <p className="jobs"><span className='white'>{total ? total.jobs : <img src={loading} alt='shaqo doon loading' />} </span>  locuri de munca</p>
+                <p className="jobs"><span className='white'>{total ? total.jobs : <img src={loading} alt='shaqo doon loading' />} </span>  locuri de muncă</p>
                 <p className="t-companies"><span className='white'>{total ? total.companies : <img src={loading} alt='shaqo doon loading' />} </span>  companii</p>
             </div>
         </div>
