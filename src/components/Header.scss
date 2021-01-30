@@ -1,10 +1,16 @@
 .header{
     background-color: #1E6C93;
-    height: 280px;
+    // height: 280px;
     text-align: center;
     // display: grid;
     // grid-template-rows: 3fr 1fr 2fr;
-    place-items: center;
+    // place-items: center;
+
+    position: sticky;
+    top:0;
+    z-index: 1;
+
+    transition: 200ms ease;
 
     box-shadow: 0px 0px 40px -12px rgb(66, 0, 189);
 

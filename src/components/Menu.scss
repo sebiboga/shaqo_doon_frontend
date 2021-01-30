@@ -5,6 +5,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    position: sticky;
+    top:280px;
+    z-index: 1;
+
     & a{
         display: inline-block;
         text-decoration: none;
