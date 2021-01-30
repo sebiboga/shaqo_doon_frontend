@@ -24,10 +24,14 @@
         }
 
         & .title{
-            color: #504F4F;
             font-size: 30px;
             display: grid;
             align-items: center;
+
+            & a{
+                color: #504F4F;
+                text-decoration: none;
+            }
         }
 
         & .company{

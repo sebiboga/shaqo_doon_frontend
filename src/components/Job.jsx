@@ -11,7 +11,7 @@ const Job = ({ company, title, city, country, link }) => {
     return (
         <div className="job">
             <div className="content">
-                <div className="title">{title}</div>
+                <div className="title"><a href={`${link}`} target='_blank' rel='noopener noreferrer' >{title}</a></div>
                 <div className="company">
                     <img src={companyLogo} alt="" />
                     <p>{company}</p>
