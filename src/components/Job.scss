@@ -31,6 +31,12 @@
             & a{
                 color: #504F4F;
                 text-decoration: none;
+                transition: all 300ms ease;
+
+                &:hover{
+                    color: #1E6C93;
+                    transition: all 300ms ease;
+                }
             }
         }
 
