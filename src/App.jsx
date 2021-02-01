@@ -18,9 +18,9 @@ const App = () => {
       <Menu />
       <Switch>
         <Route exact path='/' render={() => <Welcome />} />
-        <Route exact path='/jobs/' render={() => <Jobs />} />
-        <Route exact path='/jobs/:company' render={() => <Jobs />} />
-        <Route exact path='/companies' render={() => <Companies />} />
+        <Route exact path='/locuri-de-munca/' render={() => <Jobs />} />
+        <Route exact path='/locuri-de-munca/:company' render={() => <Jobs />} />
+        <Route exact path='/companii' render={() => <Companies />} />
         <Route path='*' render={() => <Error404 />} />
       </Switch>
     </div>

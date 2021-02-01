@@ -54,7 +54,7 @@ const AllJobs = (
                     // if comapny exist show jobs
                     getJobsCompany({ api: companySelected[0].link, cb: () => { setIsLoading(false) } })
                     // if company do not exist redirect to companies page
-                    : history.push('/companies')
+                    : history.push('/companii')
             } else {
                 if (jobs) {
                     setIsLoading(false)

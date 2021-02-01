@@ -11,8 +11,8 @@ const Header = ({ setIsLoading }) => {
 
     return (
         <div className="menu">
-            <Link to='/jobs' jobs={'allJobs'} title='some title' onClick={() => setIsLoading(true)}>Toate Locurile de Muncă</Link>
-            <Link to='/companies' onClick={() => setIsLoading(true)}>Companii</Link>
+            <Link to='/locuri-de-munca' jobs={'allJobs'} title='some title' onClick={() => setIsLoading(true)}>Toate Locurile de Muncă</Link>
+            <Link to='/companii' onClick={() => setIsLoading(true)}>Companii</Link>
         </div>
     );
 };
