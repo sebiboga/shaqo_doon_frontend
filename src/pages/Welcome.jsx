@@ -5,7 +5,7 @@ const Welcome = () => {
 
     return (
         <div className="welcome">
-            Welcome
+            Un singur loc pentru toate locurile de muncă!!
         </div>
     );
 };

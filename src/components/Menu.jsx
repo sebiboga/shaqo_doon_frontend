@@ -10,9 +10,11 @@ import { setIsLoading } from '../redux/helpers/helpers.actions';
 const Header = ({ setIsLoading }) => {
 
     return (
-        <div className="menu">
-            <Link to='/locuri-de-munca' jobs={'allJobs'} title='some title' onClick={() => setIsLoading(true)}>Toate Locurile de Muncă</Link>
-            <Link to='/companii' onClick={() => setIsLoading(true)}>Companii</Link>
+        <div className="menu-wrapper">
+            <div className="menu">
+                <Link to='/locuri-de-munca' jobs={'allJobs'} title='some title' onClick={() => setIsLoading(true)}>Toate Locurile de Muncă</Link>
+                <Link to='/companii' onClick={() => setIsLoading(true)}>Companii</Link>
+            </div>
         </div>
     );
 };

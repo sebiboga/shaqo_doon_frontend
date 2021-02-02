@@ -1,6 +1,6 @@
 .company-tab{
     position: relative;
-    background-color: aqua;
+    background-color: #f0dfcc;
     width: 300px;
     min-height: 100px;
 
@@ -24,12 +24,13 @@
     } 
 
     & h1{
-        margin: 20px 0 0 0;
+        margin: 30px 0 0 0;
+        font-size: 20px;
     }
 
     & .jobs-company{
         // color: white;
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
