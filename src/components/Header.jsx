@@ -10,7 +10,7 @@ import { getTotal } from '../redux/total/total.actions';
 
 import { Link } from 'react-router-dom';
 
-import { scrollPosition } from '../helpers/checkScrollDistance';
+import { scrollPosition } from '../helpers/checkScroll';
 
 import Menu from './Menu';
 
