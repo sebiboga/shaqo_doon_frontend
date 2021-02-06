@@ -33,7 +33,7 @@ const Header = ({ getTotal, total }) => {
 
     useEffect(() => {
         getTotal();
-        scrollPosition(minimize, reset);
+        scrollPosition(150, minimize, reset);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

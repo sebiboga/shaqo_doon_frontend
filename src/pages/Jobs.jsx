@@ -96,8 +96,7 @@ const AllJobs = (
     } else {
         return (
             <div className="jobs">
-                {/* All jobs */}
-                {/* I have to somehow DRY this */}
+                <a href="#top" id='top-jobs'></a>
                 {params.company ?
                     renderJobs(jobsCompany)
                     :
