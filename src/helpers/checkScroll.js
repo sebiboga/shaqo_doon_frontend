@@ -88,17 +88,15 @@ export const checkScrollingUpDown = (refresh, down, up) => {
 
 // this function execute 2 cb based on where the scrolling position on Y is.
 export const scrollPosition = (distance, minimize, reset) => {
-    let ok = true;
 
-    window.addEventListener('scroll', (e) => {
-        // console.log(e.path[1].scrollY)
-        if (e.path[1].scrollY > distance && ok) {
+    const scrollFunction = () => {
+        if (document.body.scrollTop > distance || document.documentElement.scrollTop > distance) {
             minimize();
-            ok = !ok
-        }
-        if (e.path[1].scrollY <= distance && !ok) {
+        } else {
             reset();
-            ok = !ok
         }
-    })
+    }
+
+    window.onscroll = function () { scrollFunction() }
+
 }

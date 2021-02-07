@@ -1,7 +1,8 @@
  .header-wrapper{
     top:0;
     z-index: 1;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     // transform: scale(0.7);
 
     & .header{
