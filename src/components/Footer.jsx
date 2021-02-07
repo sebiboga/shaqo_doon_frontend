@@ -10,8 +10,8 @@ const Footer = () => {
     useEffect(() => {
         checkScrollingUpDown(
             null,
-            () => { setOpacity(1); setTranslateY(1) },
-            () => { setOpacity(0); setTranslateY(1) },
+            () => { setOpacity(1); setTranslateY(0) },
+            () => { setOpacity(0); setTranslateY(50) },
         )
 
         return () => {
