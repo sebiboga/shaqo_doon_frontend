@@ -12,7 +12,7 @@ export const getAllCompanies = (setIsCompaniesLoaded) => async dispatch => {
             payload: response.data.companies
         })
 
-        // tell Jobs/company thta the companies are loaded and can move forward 
+        // tell companies that the companies are loaded and can display it
         setIsCompaniesLoaded();
     } catch (error) {
 

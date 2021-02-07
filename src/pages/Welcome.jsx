@@ -5,8 +5,8 @@ const Welcome = () => {
 
     return (
         <div className="welcome">
-            Un singur loc pentru toate locurile de muncă!!
-        </div>
+            <h1>Buna venit pe <strong>shaqo doon!</strong></h1>
+        </div >
     );
 };
 
