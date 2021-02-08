@@ -5,6 +5,7 @@ const Welcome = () => {
 
     return (
         <div className="welcome">
+            <div className="spacer"></div>
             <h1>Buna venit pe <strong>shaqo doon!</strong></h1>
             <div className="message">
                 <h2>Cauti un loc de munca?</h2>
