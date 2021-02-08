@@ -37,7 +37,7 @@ const Footer = () => {
                 <p className="empty"></p>
                 {console.log(achekerUrl)}
                 <p>Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shado doon</a> team.</p>
-                <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AA%22%3E" target='_blank' >
+                <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AA" target='_blank' >
                     <img src="https://achecker.ca/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" height="32" width="102" />
                 </a>
             </div>
