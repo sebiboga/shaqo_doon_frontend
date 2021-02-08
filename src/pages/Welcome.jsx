@@ -14,6 +14,7 @@ const Welcome = () => {
                     <h3>Misiunea noastră este<br />să agregăm toate locurile de muncă într-un singur loc<br />pentru a te ajuta să găsești mai ușor locul de muncă ideal pentru tine!</h3>
                 </div>
             </div>
+            <div className="spacer-2"></div>
         </div >
     );
 };

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.scss';
 
+import { useHistory } from 'react-router-dom';
+
 import { checkScrollingUpDown } from '../helpers/checkScroll';
 
 const Footer = () => {
     const [opacity, setOpacity] = useState(1);
-    const [translateY, setTranslateY] = useState(0)
+    const [translateY, setTranslateY] = useState(0);
+    const [achekerUrl, setAchekerUrl] = useState('');
+
+    const history = useHistory();
 
     useEffect(() => {
         checkScrollingUpDown(
@@ -19,10 +24,18 @@ const Footer = () => {
         }
     }, []);
 
+    useEffect(() => {
+        setAchekerUrl(history.location.pathname.replace('/', ''))
+        history.listen((location) => {
+            setAchekerUrl(location.pathname.replace('/', ''));
+        })
+    }, [])
+
     return (
         <div className="footer-wrapper" style={{ opacity, transform: `translate(0, ${translateY}px)` }}>
             <div className="footer" >
                 <p className="empty"></p>
+                {console.log(achekerUrl)}
                 <p>Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shado doon</a> team.</p>
                 <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AA%22%3E" target='_blank' >
                     <img src="https://achecker.ca/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" height="32" width="102" />
