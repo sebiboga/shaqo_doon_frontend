@@ -14,12 +14,13 @@ const Companies = ({ companies, getAllCompanies }) => {
     useEffect(() => {
         if (companies === null) {
             getAllCompanies(() => { setIsLoading(false) });
+        } else {
+            setIsLoading(false)
         }
 
         // if comes from jobs page, the companies are already loaded
-        if (companies.length) {
-            setIsLoading(false)
-        }
+        // if (companies.length) {
+        // }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
