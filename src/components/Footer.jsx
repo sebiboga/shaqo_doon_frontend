@@ -20,8 +20,14 @@ const Footer = () => {
     }, []);
 
     return (
-        <div className="footer" style={{ opacity, transform: `translate(0, ${translateY}px)` }}>
-            Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shado doon</a> team.
+        <div className="footer-wrapper" style={{ opacity, transform: `translate(0, ${translateY}px)` }}>
+            <div className="footer" >
+                <p className="empty"></p>
+                <p>Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shado doon</a> team.</p>
+                <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AA%22%3E" target='_blank' >
+                    <img src="https://achecker.ca/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" height="32" width="102" />
+                </a>
+            </div>
         </div>
     );
 };

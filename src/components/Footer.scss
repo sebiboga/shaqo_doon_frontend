@@ -1,13 +1,35 @@
-.footer{
-    background-color: #a67563;    
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    color: rgb(65, 65, 65);
+.footer-wrapper{
+    background-color: white;
+    padding-top: 3px;
 
     position: fixed; 
     width: 100%;
     bottom: 0;
 
     transition: all 300ms ease;
+
+    .footer{
+        background-color: #a67563;  
+        line-height: 50px;  
+        height: 50px;
+        text-align: center;
+        color: rgb(65, 65, 65);
+        display: grid;
+        grid-template-columns:1fr 4fr 1fr;
+        place-items: center;
+
+        p{
+            // display: inline-block;
+            // line-height: 50px;
+            margin:0;
+        }
+
+        a{
+            height: 50px;
+
+            img{
+                margin-top: 9px;
+            }
+        }
+    }
 }
