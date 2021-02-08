@@ -15,6 +15,12 @@ const Companies = ({ companies, getAllCompanies }) => {
         if (companies === null) {
             getAllCompanies(() => { setIsLoading(false) });
         }
+
+        // if comes from jobs page, the companies are already loaded
+        if (companies.length) {
+            setIsLoading(false)
+        }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
