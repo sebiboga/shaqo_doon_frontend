@@ -41,7 +41,7 @@ const Footer = () => {
                     <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AAA" className="aaa">
                         <img src="https://achecker.ca/images/icon_W2_aaa.jpg" alt="WCAG 2.0 (Level AAA)" height="32" width="102" />
                     </a>
-                    <a href="https://shaqodoon.ro/humans.txt" className="humanstxt">
+                    <a href="https://shaqodoon.ro/humans.txt" className="humanstxt" target='_blank' rel='noopener noreferrer'>
                         <img src={humansTxt} alt="shaqo doon humans txt" style={{ height: '32px' }} />
                     </a>
                 </div>
