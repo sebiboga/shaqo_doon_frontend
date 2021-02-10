@@ -1,0 +1,19 @@
+/* TEAM */
+
+	UI developer: Sergiu Avram
+	DISCORD bot developer: Croi
+	Software Tester: 
+	   Antonio Sefer
+	   Ioana Nechita
+	   Karla Boga
+	
+
+/* THANKS */
+
+    Scraper script: Dorian		
+
+/* SITE */
+	Last update: 10/02/2021
+	Language: Romanian
+	Doctype:HTML5
+	
