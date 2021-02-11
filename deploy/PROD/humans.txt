@@ -1,19 +1,53 @@
 /* TEAM */
 
 	UI developer: Sergiu Avram
-	DISCORD bot developer: Croi
-	Software Tester: 
+	
+	DISCORD bot developer: Croitoru Cristian
+	
+	Software Testers: 
 	   Antonio Sefer
 	   Ioana Nechita
 	   Karla Boga
+	   Adina Petran
+	   Traian 
 	
-
+    SEO specialist: Paula Suciu
+  
 /* THANKS */
 
-    Scraper script: Dorian		
+    Scraper script: 
+	    Dorian	Almasan
+	    Daiana Bratfalean
+		Horatiu Tatar
+		Ioana Poienar
+		Andrada Scrobota
+		Paul Emilian Suatean
+		Marius Liviu Briscut
+		Sebastian Andrei Spatariu
+		Niculina Moldovan
+		Raul Chindris
+		Maria Bufnea
+		Moldovan Cristian
+		Elisabeta Georgiana Gherca
+		Ionut Bucur
+		Madalina Latiu
+		Ovidiu Alexiev
+		Raul Chindris
+		
+		
+    Larisa Daniela Matei
+	Darian Onaciu
+	Bogdan Nastasa
+	Teodora Damian
+	Oana Socaciu
+	Raul Martin
+	Diana Vlasin
+	
 
 /* SITE */
 	Last update: 10/02/2021
 	Language: Romanian
-	Doctype:HTML5
+	Doctype:HTML5, ReactJS, CSS3
+	tools: JMeter
+	environments: DISCORD
 	
