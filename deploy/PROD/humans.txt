@@ -11,7 +11,8 @@
 	   Adina Petran
 	   Traian 
 	
-
+    SEO specialist: Paula Suciu
+  
 /* THANKS */
 
     Scraper script: 
@@ -32,6 +33,7 @@
 		Madalina Latiu
 		Ovidiu Alexiev
 		Raul Chindris
+		
 		
     Larisa Daniela Matei
 	Darian Onaciu
