@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.scss';
 
-import humansTxt from '../assets/gif/humans-txt.gif'
+import humansTxt from '../assets/gif/humans-txt.gif';
+import aaaChecker from '../assets/images/icon_W2_aaa.jpg';
 
 import { useHistory } from 'react-router-dom';
 import { checkScrollingUpDown } from '../helpers/checkScroll';
@@ -39,7 +40,7 @@ const Footer = () => {
                 <p>Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shado doon</a> team.</p>
                 <div className="badges">
                     <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AAA" className="aaa">
-                        <img src="https://achecker.ca/images/icon_W2_aaa.jpg" alt="WCAG 2.0 (Level AAA)" height="32" width="102" />
+                        <img src={aaaChecker} alt="WCAG 2.0 (Level AAA)" height="32" width="102" />
                     </a>
                     <a href="https://shaqodoon.ro/humans.txt" className="humanstxt" target='_blank' rel='noopener noreferrer'>
                         <img src={humansTxt} alt="shaqo doon humans txt" style={{ height: '32px' }} />
