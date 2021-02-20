@@ -34,12 +34,13 @@ const Companies = ({ companies, getAllCompanies }) => {
     } else {
         return (
             <div className="companies">
-                {companies ? companies.map(({ company, link, jobs }) =>
+                {console.log(companies)}
+                {companies ? companies.map(({ company, link, }, index) =>
                     <Company
-                        key={company ? company : Math.random()}
+                        // key={company ? company : Math.random()}
+                        key={index}
                         company={company}
                         link={link}
-                        jobs={jobs}
                     />
                 ) : null}
             </div>
