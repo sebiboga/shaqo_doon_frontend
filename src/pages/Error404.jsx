@@ -10,7 +10,7 @@ const Error404 = () => {
             Pagina nu a fost gasita.
             <br />
             <br />
-            Probabil este vina lui Sergiu!
+            Probabil sa fie vina lui Sergiu!
         </div>
     );
 };

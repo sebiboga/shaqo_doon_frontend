@@ -20,7 +20,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => <Welcome />} />
         <Route exact path='/locuri-de-munca/' render={() => <Jobs />} />
-        <Route exact path='/locuri-de-munca/:company' render={() => <Jobs />} />
+        {/* <Route exact path='/locuri-de-munca/:company' render={() => <Jobs />} /> */}
         <Route exact path='/companii' render={() => <Companies />} />
         <Route path='*' render={() => <Error404 />} />
       </Switch>

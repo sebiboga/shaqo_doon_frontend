@@ -5,6 +5,10 @@
     margin-bottom: 70px;
 }
 
+.error-loading-jobs{
+    text-align: center;
+}
+
 .loading{
     height: 100vh;
 
@@ -14,4 +18,8 @@
         width: 100px;
         padding-top: 250px;
     }
+}
+
+#top-jobs{
+    display: none;
 }

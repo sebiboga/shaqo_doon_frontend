@@ -34,7 +34,6 @@ const Companies = ({ companies, getAllCompanies }) => {
     } else {
         return (
             <div className="companies">
-                {console.log(companies)}
                 {companies ? companies.map(({ company, link, }, index) =>
                     <Company
                         // key={company ? company : Math.random()}

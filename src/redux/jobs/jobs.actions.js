@@ -22,6 +22,12 @@ export const getAllJobs = (jobsLoaded) => async dispatch => {
     }
 }
 
+export const clearJobs = () => async dispatch => {
+    dispatch({
+        type: jobsTypes.CLEAR_JOBS,
+    })
+}
+
 export const getJobsCompany = ({ api, cb }) => async dispatch => {
     // console.log('api', api)
     try {
