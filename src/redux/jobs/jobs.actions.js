@@ -2,11 +2,11 @@ import axiosBaseUrl from '../../axios/baseUrl';
 import axios from 'axios';
 import { jobsTypes } from './jobs.types';
 
-export const getAllJobs = (jobsLoaded) => async dispatch => {
+export const getAllJobs = (jobsLoaded, query) => async dispatch => {
     try {
         const response = await axiosBaseUrl({
             method: 'GET',
-            url: '/jobs/',
+            url: `/jobs/${query}`,
         })
 
         // console.log(response.data.jobs)

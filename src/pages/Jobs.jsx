@@ -11,64 +11,33 @@ import loading from '../assets/gif/loading 2.gif';
 
 import Job from '../components/Job';
 
-const AllJobs = (
-    {
-        jobs, getAllJobs, clearJobs,
-        // companies, getAllCompanies,
-        // getJobsCompany, jobsCompany,
-        isLoading, setIsLoading
+const AllJobs = ({
+    jobs, getAllJobs, clearJobs,
+    isLoading, setIsLoading,
+    city, country, company, q
+}) => {
+
+    const createQuery = () => {
+        let query = '?'
+        if (city) {
+            query += `&city=${city}`
+        }
+        if (country) {
+            query += `&country=${country}`
+        }
+        if (company) {
+            query += `&company=${company}`
+        }
+        if (q) {
+            query += `&q=${q}`
+        }
+        return query;
     }
-) => {
-
-    // const [loading, setLoading] = useState(true); //  this was replaced with redux
-    // const [isCompaniesLoaded, setCompaniesLoaded] = useState(false);
-
-    // const history = useHistory();
-    // const params = useParams();
-
-    // useEffect(() => {
-    //     // why do I need companies loaded? asnwer: to check if the company exist if user goes direct to jobs/company-name
-    //     if (!companies) {
-    //         getAllCompanies(() => { setCompaniesLoaded(true) });
-    //     } else {
-    //         // if companies are already loaded set it to true
-    //         setCompaniesLoaded(true);
-    //     }
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [])
 
     useEffect(() => {
-        // // check if the companies are loaded, if not, wait
-        // if (isCompaniesLoaded) {
-        //     if (params.company) {
-        //         let companySelected;
-        //         // get the api from all jobs from this company
-        //         companies ?
-        //             companySelected = companies.filter(
-        //                 // check if there is any company based on the company name from url
-        //                 company => company.company === params.company ||
-        //                     // check if there is any company based on the company name from url after replacing '-' with ' '
-        //                     company.company === params.company.replace(/-/g, ' ')
-        //             ) : console.log('empty')
-        //         companySelected.length ?
-        //             // if comapny exist show jobs
-        //             getJobsCompany({ api: companySelected[0].link, cb: () => { setIsLoading(false) } })
-        //             // if company do not exist redirect to companies page
-        //             : history.push('/companii')
-        //     } else {
-        if (jobs) {
-            setIsLoading(false)
-        } else {
-            getAllJobs(() => { setIsLoading(false) });
-        }
-        //     }
-        // }
-        // because I make it to render when 'isLoading' changes it render extra 1 time after setIsLoading(false)
+        getAllJobs(() => { setIsLoading(false) }, createQuery());
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [
-        // isCompaniesLoaded, 
-        isLoading
-    ])
+    }, [isLoading])
 
     useEffect(() => {
         return () => {
@@ -90,8 +59,7 @@ const AllJobs = (
                     country={country}
                     link={link}
                 />)
-            }
-            )
+            })
         }
     }
 
@@ -107,9 +75,6 @@ const AllJobs = (
             <div className="jobs">
                 <a href="#top" id='top-jobs' title="top" >top</a>
                 {
-                    // params.company ?
-                    //     renderJobs(jobsCompany)
-                    //     :
                     renderJobs(jobs)
                 }
             </div>
@@ -117,15 +82,20 @@ const AllJobs = (
     }
 };
 
-const mapStateToProps = ({ jobs, companies, helpers }) => ({
+const mapStateToProps = ({ jobs, companies, helpers, search }) => ({
     jobs: jobs.all,
     jobsCompany: jobs.jobsCompany,
     companies: companies.all,
-    isLoading: helpers.isLoading
+    isLoading: helpers.isLoading,
+
+    city: search.city,
+    country: search.country,
+    company: search.company,
+    q: search.q,
 })
 
 const mapDispatchToProps = dispatch => ({
-    getAllJobs: (jobsLoaded) => dispatch(getAllJobs(jobsLoaded)),
+    getAllJobs: (jobsLoaded, searchQuery) => dispatch(getAllJobs(jobsLoaded, searchQuery)),
     getJobsCompany: (data) => dispatch(getJobsCompany(data)),
     getAllCompanies: (cb) => dispatch(getAllCompanies(cb)),
     setIsLoading: (bool) => dispatch(setIsLoading(bool)),

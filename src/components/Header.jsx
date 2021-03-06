@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import { scrollPosition } from '../helpers/checkScroll';
 
 import Menu from './Menu';
+import SearchBar from './search_bar/search_bar.component';
 
 const Header = ({ getTotal, total }) => {
     const [imgSize, setImgSize] = useState('150px');
@@ -56,6 +57,7 @@ const Header = ({ getTotal, total }) => {
                 </div>
             </div>
             <Menu />
+            <SearchBar />
         </div>
 
     );
