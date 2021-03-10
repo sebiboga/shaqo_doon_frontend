@@ -23,6 +23,15 @@
             margin: 0;
         }
 
+        & .clickable{
+            text-decoration: underline;
+        }
+
+        & .clickable:hover{
+            cursor: pointer;
+            color: black;
+        }
+
         & .title{
             font-size: 30px;
             display: grid;

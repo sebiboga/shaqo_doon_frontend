@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import { searchTypes } from './search.type';
 
 const defaultState = {
@@ -26,7 +25,7 @@ const searchRedux = (state = defaultState, action) => {
         case searchTypes.QUERY:
             return { ...state, q: action.payload };
         case searchTypes.CLEAR_QUERY:
-            return { ...state, q: null }
+            return { ...state, q: '' }
         default:
             return state
     }

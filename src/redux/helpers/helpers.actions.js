@@ -6,3 +6,10 @@ export const setIsLoading = (bool) => dispatch => {
         payload: bool
     })
 }
+
+export const setDisplaySearchBar = (bool) => dispatch => {
+    dispatch({
+        type: helpersType.IS_SEARCH_BAR_DISPLAYED,
+        payload: bool
+    })
+}

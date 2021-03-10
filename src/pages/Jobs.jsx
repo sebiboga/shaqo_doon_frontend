@@ -5,7 +5,7 @@ import './Jobs.scss';
 import { connect } from 'react-redux';
 import { getAllJobs, getJobsCompany, clearJobs } from '../redux/jobs/jobs.actions';
 import { getAllCompanies } from '../redux/companies/companies.actions';
-import { setIsLoading } from '../redux/helpers/helpers.actions';
+import { setIsLoading, setDisplaySearchBar } from '../redux/helpers/helpers.actions';
 
 import loading from '../assets/gif/loading 2.gif';
 
@@ -14,7 +14,8 @@ import Job from '../components/Job';
 const AllJobs = ({
     jobs, getAllJobs, clearJobs,
     isLoading, setIsLoading,
-    city, country, company, q
+    city, country, company, q,
+    setDisplaySearchBar
 }) => {
 
     const createQuery = () => {
@@ -29,10 +30,20 @@ const AllJobs = ({
             query += `&company=${company}`
         }
         if (q) {
-            query += `&q=${q}`
+            query += `&q=${q.trim().replace(/ /g, '+')}`
         }
         return query;
     }
+
+    // console.log(q.trim().replace(/\s+/g, '+'))
+
+    useEffect(() => {
+        setDisplaySearchBar(true)
+        return () => {
+            setDisplaySearchBar(false)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     useEffect(() => {
         getAllJobs(() => { setIsLoading(false) }, createQuery());
@@ -49,7 +60,10 @@ const AllJobs = ({
     const renderJobs = (theJobs) => {
         if (theJobs === null) {
             return <div className="error-loading-jobs">something went wrong, please refresh</div>
-        } else {
+        } else if (theJobs.length === 0) {
+            return <div className="no_results">No results</div>
+        }
+        else {
             return theJobs.map(({ company, title, city, country, link }, index) => {
                 return (<Job
                     key={`${index} - ${company}`}
@@ -99,6 +113,7 @@ const mapDispatchToProps = dispatch => ({
     getJobsCompany: (data) => dispatch(getJobsCompany(data)),
     getAllCompanies: (cb) => dispatch(getAllCompanies(cb)),
     setIsLoading: (bool) => dispatch(setIsLoading(bool)),
+    setDisplaySearchBar: (bool) => dispatch(setDisplaySearchBar(bool)),
     clearJobs: () => dispatch(clearJobs()),
 })
 

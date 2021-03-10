@@ -6,8 +6,14 @@ import { setQuery, clearQuery, clearCity, clearCompany, clearCountry } from '../
 import { setIsLoading } from '../../redux/helpers/helpers.actions';
 
 import SearchSelection from '../search_selection/search_selection.component';
+import SearchInput from '../search_input/search_input.component';
 
-const SearchBar = ({ city, country, company, q, setQuery, clearQuery, clearCity, clearCompany, clearCountry, setIsLoading }) => {
+const SearchBar = ({
+    city, country, company, q,
+    setQuery, clearQuery, clearCity, clearCompany, clearCountry,
+    setIsLoading,
+    isSearchBadDisplayed
+}) => {
     const handleClearCity = () => {
         setIsLoading(true);
         clearCity();
@@ -24,9 +30,9 @@ const SearchBar = ({ city, country, company, q, setQuery, clearQuery, clearCity,
     }
 
     return (
-        <div className="search_bar_wrapper">
+        <div className="search_bar_wrapper" style={{ display: isSearchBadDisplayed ? '' : 'none' }}>
             <div className="search_bar">
-                <input placeholder="search..." />
+                <SearchInput />
                 <SearchSelection searchSelection={country} handleClick={handleClearCountry} />
                 <SearchSelection searchSelection={city} handleClick={handleClearCity} />
                 <SearchSelection searchSelection={company} handleClick={handleClearCompany} />
@@ -35,11 +41,12 @@ const SearchBar = ({ city, country, company, q, setQuery, clearQuery, clearCity,
     );
 };
 
-const mapStateToProps = ({ search }) => ({
+const mapStateToProps = ({ search, helpers }) => ({
     city: search.city,
     country: search.country,
     company: search.company,
     q: search.q,
+    isSearchBadDisplayed: helpers.isSearchBadDisplayed
 })
 
 const mapDispatchToProps = (dispatch) => ({

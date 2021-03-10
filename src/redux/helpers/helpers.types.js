@@ -1,3 +1,4 @@
 export const helpersType = {
     IS_LOADING: 'IS_LOADING',
+    IS_SEARCH_BAR_DISPLAYED: 'IS_SEARCH_BAR_DISPLAYED',
 }

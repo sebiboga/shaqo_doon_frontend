@@ -35,13 +35,14 @@ const Job = ({
                 <div className="title"><a href={`${link}`} target='_blank' rel='noopener noreferrer' ><span dangerouslySetInnerHTML={{ __html: title }} /></a></div>
                 <div className="company">
                     <img src={companyLogo} alt="" />
-                    <p onClick={handleClickCompany} >{company}</p>
+                    <p className='clickable' onClick={handleClickCompany} >{company}</p>
                 </div>
                 <div className="location">
                     <img src={locationLogo} alt="" />
-                    <p>
-                        <span dangerouslySetInnerHTML={{ __html: city }} onClick={handleClickCity} />,
-                        <span dangerouslySetInnerHTML={{ __html: country }} onClick={handleClickCountry} />
+                    <p >
+                        <span className='clickable' dangerouslySetInnerHTML={{ __html: city }} onClick={handleClickCity} />,
+                        <span> </span>
+                        <span className='clickable' dangerouslySetInnerHTML={{ __html: country }} onClick={handleClickCountry} />
                     </p>
                 </div>
             </div>
