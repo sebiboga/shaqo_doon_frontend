@@ -1,11 +1,14 @@
 import React from 'react'
 import './search_bar.style.scss';
+import iconlens from '../../assets/images/search.png';
+import iconxdelete from '../../assets/images/close-icon.png';
 
 import { connect } from 'react-redux';
 import { setQuery, clearQuery, clearCity, clearCompany, clearCountry } from '../../redux/search/search.actions';
 import { setIsLoading } from '../../redux/helpers/helpers.actions';
 
 import SearchSelection from '../search_selection/search_selection.component';
+
 
 const SearchBar = ({ city, country, company, q, setQuery, clearQuery, clearCity, clearCompany, clearCountry, setIsLoading }) => {
     const handleClearCity = () => {
@@ -26,7 +29,17 @@ const SearchBar = ({ city, country, company, q, setQuery, clearQuery, clearCity,
     return (
         <div className="search_bar_wrapper">
             <div className="search_bar">
-                <input placeholder="search..." />
+                <div className="search-input-wrapper">
+                    <input placeholder="search..." required />
+                    <div className="lens-icon">
+                        <img src={iconlens}/>
+                    </div>
+                    <div className="x-icon">
+                        <buttom className="close-icon" type='reset'>
+                            <img src={iconxdelete}/>
+                        </buttom>
+                    </div>   
+                </div>
                 <SearchSelection searchSelection={country} handleClick={handleClearCountry} />
                 <SearchSelection searchSelection={city} handleClick={handleClearCity} />
                 <SearchSelection searchSelection={company} handleClick={handleClearCompany} />
