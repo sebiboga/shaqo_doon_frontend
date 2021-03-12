@@ -1,23 +1,19 @@
 .search_selection{
-    p {
-        margin: 0;
-    }
     display: flex;
     margin-left: 15px;
     font-weight: bold;
-    .suggestion {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #F0EFEC;
-        padding: 4px 31px;
-        border-radius: 5px;
-        font-size: 13px;
-        border: 2px solid;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: #F0EFEC;
+    padding: 4px 31px;
+    border-radius: 5px;
+    font-size: 13px;
+    border: 2px solid;    
         img {
             position: absolute;
             right: -8px;
+            bottom: 5px;
         }
-    }
+    
 }

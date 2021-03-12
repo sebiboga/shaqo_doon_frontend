@@ -6,10 +6,8 @@ const SearchSelection = ({ searchSelection, handleClick }) => {
 
     return (
         <div className="search_selection" onClick={handleClick}>
-            <div className="suggestion">
                 {searchSelection}
                 <img src={iconx}/>
-            </div>
         </div>
     );
 };
