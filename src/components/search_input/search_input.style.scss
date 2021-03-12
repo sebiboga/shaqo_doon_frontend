@@ -2,13 +2,46 @@
     position: relative;
     display: inline-block;
 
+    & input{
+        border-radius: 5px;
+        border: 2px solid black;
+        // width: 100%;
+        font-size: 14px;
+        height: 22px;
+        padding: 2px;
+        font-style: italic;
+        background-color: #F0EFEC;
+        padding-right: 50px;
+    }
+
     .clear-query{
         position: absolute;
-        right: 5px;
+        right: 0;
+        height: 26px;
+        margin-top: 2px;
+        border-radius: 2px;
+        width: 24px;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+
+        img{
+            width: 13px;
+        }
     }
 
     .search{
         position: absolute;
-        right: 20px;
+        height: 26px;
+        width: 24px;
+        display: grid;
+        place-items: center;
+        margin-top: 2px;
+        right: 24px;
+
+        img{
+            width: 15px;
+            transition: all ease 2000ms;
+        }
     }
 }

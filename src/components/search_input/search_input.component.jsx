@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { setQuery, clearQuery } from '../../redux/search/search.actions';
 import { setIsLoading } from '../../redux/helpers/helpers.actions';
 
+import clearQueryImg from '../../assets/images/close-icon.png';
+import searchImg from '../../assets/images/search2.png';
+
 
 const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
     const [reset, setReset] = useState(false);
@@ -45,9 +48,14 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
     }, [])
 
     return (
+        // <div className="search-input">
+        //     <div className="clear-query" onClick={handleClear}>X</div>
+        //     <div className="search" onClick={handleSearch}>S</div>
+        //     <input value={q} onChange={(e) => handleQueryChande(e.target.value)} className='query-input' />
+        // </div>
         <div className="search-input">
-            <div className="clear-query" onClick={handleClear}>X</div>
-            <div className="search" onClick={handleSearch}>S</div>
+            <div className="clear-query" onClick={handleClear} style={{ opacity: q ? 1 : 0 }}><img src={clearQueryImg} alt="clear icon shaqodoon" /></div>
+            <div className="search" onClick={handleSearch} ><img src={searchImg} alt="search icon shaqodoon" /></div>
             <input value={q} onChange={(e) => handleQueryChande(e.target.value)} className='query-input' />
         </div>
     );
