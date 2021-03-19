@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="footer-wrapper" style={{ opacity, transform: `translate(0, ${translateY}px)` }}>
             <div className="footer" >
                 <p className="empty"></p>
-                <p>Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shado doon</a> team.</p>
+                <p>Creat de <a href={`https://info.shaqodoon.ro/`} target='_blank' rel='noopener noreferrer' >shaqo doon</a> team.</p>
                 <div className="badges">
                     <a href="https://achecker.ca/checker/index.php?uri=referer&gid=WCAG2-AAA" className="aaa">
                         <img src={aaaChecker} alt="WCAG 2.0 (Level AAA)" height="32" width="102" />
