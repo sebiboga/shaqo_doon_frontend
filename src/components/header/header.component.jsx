@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import './Header.scss';
+import './header.style.scss';
 
-import logo from '../assets/images/shaqo doon logo.png';
-import info from '../assets/images/info.png';
-import loading from '../assets/gif/loading 2.gif';
+import logo from '../../assets/images/shaqo doon logo.png';
+// import info from '../../assets/images/info.png';
+import loading from '../../assets/gif/loading 2.gif';
 
 import { connect } from 'react-redux';
-import { getTotal } from '../redux/total/total.actions';
+import { getTotal } from '../../redux/total/total.actions';
 
 import { Link } from 'react-router-dom';
 
-import { scrollPosition } from '../helpers/checkScroll';
+import { scrollPosition } from '../../helpers/checkScroll';
 
-import Menu from './Menu';
-import SearchBar from './search_bar/search_bar.component';
+import Menu from '../menu/menu.component';
+import SearchBar from '../search_bar/search_bar.component';
 
 const Header = ({ getTotal, total }) => {
     const [imgSize, setImgSize] = useState('150px');
@@ -42,9 +42,6 @@ const Header = ({ getTotal, total }) => {
         <div className="header-wrapper">
             <div className="header" >
                 <div className="image">
-                    {/* <Link to='https://info.shaqodoon.ro/' alt='info shaqo doon'>
-                        <img src={info} alt="info shaqo doon" style={{ width: '30px', marginBottom: '60px' }} />
-                    </Link> */}
                     <Link to='/' >
                         <img src={logo} alt="shaqo doon logo" style={{ width: imgSize, height: imgSize }} />
                     </Link>

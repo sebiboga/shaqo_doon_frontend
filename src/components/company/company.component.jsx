@@ -1,16 +1,7 @@
 import React from 'react';
-import './Company.scss';
-
-// import { useHistory } from 'react-router-dom';
+import './company.style.scss';
 
 const Comapny = ({ company, link }) => {
-
-    // const history = useHistory();
-
-    // const handleClick = () => {
-    //     // selectCompany(company);
-    //     history.push(`/locuri-de-munca/${company.replace(/ /g, '-')}`)
-    // }
 
     return (
         <a className="company-tab" href={link} target='_blank' rel='noopener noreferrer'  >

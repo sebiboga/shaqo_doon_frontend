@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
-import './Jobs.scss';
+import './jobs.style.scss';
 
 // import { useHistory, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAllJobs, getJobsCompany, clearJobs } from '../redux/jobs/jobs.actions';
-import { getAllCompanies } from '../redux/companies/companies.actions';
-import { setIsLoading, setDisplaySearchBar } from '../redux/helpers/helpers.actions';
+import { getAllJobs, getJobsCompany, clearJobs } from '../../redux/jobs/jobs.actions';
+import { getAllCompanies } from '../../redux/companies/companies.actions';
+import { setIsLoading, setDisplaySearchBar } from '../../redux/helpers/helpers.actions';
 
-import loading from '../assets/gif/loading 2.gif';
+import loading from '../../assets/gif/loading 2.gif';
 
-import Job from '../components/Job';
+import Job from '../../components/job/job.component';
 
 const AllJobs = ({
     jobs, getAllJobs, clearJobs,

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './Companies.scss';
+import './companies.style.scss';
 
-import loading from '../assets/gif/loading 2.gif';
+import loading from '../../assets/gif/loading 2.gif';
 
 import { connect } from 'react-redux';
-import { getAllCompanies } from '../redux/companies/companies.actions';
+import { getAllCompanies } from '../../redux/companies/companies.actions';
 
-import Company from '../components/Company';
+import Company from '../../components/company/company.component';
 
 const Companies = ({ companies, getAllCompanies }) => {
     const [isLoading, setIsLoading] = useState(true);

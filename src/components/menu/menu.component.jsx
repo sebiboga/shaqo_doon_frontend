@@ -1,10 +1,10 @@
 import React from 'react';
-import './Menu.scss';
+import './menu.style.scss';
 
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { setIsLoading } from '../redux/helpers/helpers.actions';
+import { setIsLoading } from '../../redux/helpers/helpers.actions';
 
 
 const Header = ({ setIsLoading }) => {

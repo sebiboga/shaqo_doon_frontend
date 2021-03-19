@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import './Footer.scss';
+import './footer.style.scss';
 
-import humansTxt from '../assets/gif/humans-txt.gif';
-import aaaChecker from '../assets/images/icon_W2_aaa.jpg';
+import humansTxt from '../../assets/gif/humans-txt.gif';
+import aaaChecker from '../../assets/images/icon_W2_aaa.jpg';
 
-// import { useHistory } from 'react-router-dom';
-import { checkScrollingUpDown } from '../helpers/checkScroll';
+import { checkScrollingUpDown } from '../../helpers/checkScroll';
 
 const Footer = () => {
     const [opacity, setOpacity] = useState(1);
     const [translateY, setTranslateY] = useState(0);
-    // const [achekerUrl, setAchekerUrl] = useState('');
-
-    // const history = useHistory();
 
     useEffect(() => {
         checkScrollingUpDown(
@@ -26,12 +22,6 @@ const Footer = () => {
         }
     }, []);
 
-    // useEffect(() => {
-    //     setAchekerUrl(history.location.pathname.replace('/', ''))
-    //     history.listen((location) => {
-    //         setAchekerUrl(location.pathname.replace('/', ''));
-    //     })
-    // }, [])
 
     return (
         <div className="footer-wrapper" style={{ opacity, transform: `translate(0, ${translateY}px)` }}>

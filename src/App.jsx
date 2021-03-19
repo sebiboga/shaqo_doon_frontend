@@ -3,12 +3,12 @@ import './App.css';
 
 import { Switch, Route } from "react-router-dom";
 
-import Header from './components/Header';
-import Welcome from './pages/Welcome';
-import Jobs from './pages/Jobs';
-import Companies from './pages/Companies';
-import Error404 from './pages/Error404';
-import Footer from './components/Footer';
+import Header from './components/header/header.component';
+import Welcome from './pages/welcome/welcome.component';
+import Jobs from './pages/jobs/jobs.component';
+import Companies from './pages/companies/companies.component';
+import Error404 from './pages/error/error404.component';
+import Footer from './components/footer/footer.component';
 
 const App = () => {
 

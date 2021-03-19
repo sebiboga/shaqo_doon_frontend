@@ -1,12 +1,12 @@
 import React from 'react';
-import './Job.scss';
+import './job.style.scss';
 
 import { connect } from 'react-redux';
-import { setIsLoading } from '../redux/helpers/helpers.actions';
-import { setCity, setCompany, setCountry } from '../redux/search/search.actions';
+import { setIsLoading } from '../../redux/helpers/helpers.actions';
+import { setCity, setCompany, setCountry } from '../../redux/search/search.actions';
 
-import companyLogo from '../assets/images/company.png';
-import locationLogo from '../assets/images/location.jpg'
+import companyLogo from '../../assets/images/company.png';
+import locationLogo from '../../assets/images/location.jpg'
 
 const Job = ({
     company, title, city, country, link,
