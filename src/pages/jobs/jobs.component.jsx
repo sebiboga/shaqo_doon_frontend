@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './jobs.style.scss';
 
-// import { useHistory, useParams } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAllJobs, getJobsCompany, clearJobs } from '../../redux/jobs/jobs.actions';
 import { getAllCompanies } from '../../redux/companies/companies.actions';
 import { setIsLoading, setDisplaySearchBar } from '../../redux/helpers/helpers.actions';
+import { setCity, setCompany, setCountry, setQuery } from '../../redux/search/search.actions';
 
 import loading from '../../assets/gif/loading 2.gif';
 
@@ -15,23 +16,57 @@ const AllJobs = ({
     jobs, getAllJobs, clearJobs,
     isLoading, setIsLoading,
     city, country, company, q,
+    setCity, setCountry, setCompany, setQuery,
     setDisplaySearchBar
 }) => {
+    const [queryChecked, setQueryChecked] = useState(false);
+
+    const history = useHistory();
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log('control')
+        const query = location.search;
+        if (query) {
+            const params = new URLSearchParams(query);
+            const city = params.get('city');
+            const country = params.get('country');
+            const company = params.get('company');
+            const q = params.get('q');
+
+            if (city) { setCity(city) };
+            if (country) { setCountry(country) };
+            if (company) { setCompany(company) };
+            if (q) { setQuery(q) };
+        } else {
+            console.log('empty')
+        }
+
+        setQueryChecked(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const createQuery = () => {
-        let query = '?'
+        let query = []
         if (city) {
-            query += `&city=${city}`
+            query.push(`city=${city}`)
         }
         if (country) {
-            query += `&country=${country}`
+            query.push(`country=${country}`)
         }
         if (company) {
-            query += `&company=${company}`
+            query.push(`company=${company}`)
         }
         if (q) {
-            query += `&q=${q.trim().replace(/ /g, '+')}`
+            query.push(`q=${q.trim().replace(/ /g, '+')}`)
         }
+
+        console.log(query)
+        query = `?${query.join('&')}`
+        console.log(query)
+
+        history.push({ 'search': query })
+
         return query;
     }
 
@@ -46,9 +81,9 @@ const AllJobs = ({
     }, [])
 
     useEffect(() => {
-        getAllJobs(() => { setIsLoading(false) }, createQuery());
+        if (queryChecked) { getAllJobs(() => { setIsLoading(false) }, createQuery()); }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoading])
+    }, [isLoading, queryChecked])
 
     useEffect(() => {
         return () => {
@@ -115,6 +150,11 @@ const mapDispatchToProps = dispatch => ({
     setIsLoading: (bool) => dispatch(setIsLoading(bool)),
     setDisplaySearchBar: (bool) => dispatch(setDisplaySearchBar(bool)),
     clearJobs: () => dispatch(clearJobs()),
+
+    setCity: (city) => dispatch(setCity(city)),
+    setCountry: (country) => dispatch(setCountry(country)),
+    setCompany: (company) => dispatch(setCompany(company)),
+    setQuery: (e) => dispatch(setQuery(e)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllJobs);
