@@ -17,9 +17,15 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
         clearQuery();
     }
 
-    const handleSearch = () => {
-        setIsLoading(true);
-        setReset(true);
+    const toggleSearch = () => {
+        document.querySelector("#search_input").classList.toggle("activ");
+    }
+
+    const handleSearch = (e) => {
+        if(e.keyCode == 13 && e.shiftKey == false) {
+            setIsLoading(true);
+            setReset(true);
+          }
     }
 
     const handleQueryChande = (e) => {
@@ -31,12 +37,12 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
     }
 
     const detectEnter = () => {
-        const theInput = document.getElementsByClassName('query-input')[0];
-        theInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                handleSearch();
-            }
-        })
+        // const theInput = document.getElementsByClassName('query-input')[0];
+        // theInput.addEventListener('keydown', (e) => {
+        //     if (e.key === 'Enter') {
+        //         handleSearch();
+        //     }
+        // })
     }
 
     useEffect(() => {
@@ -53,12 +59,16 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
         //     <div className="search" onClick={handleSearch}>S</div>
         //     <input value={q} onChange={(e) => handleQueryChande(e.target.value)} className='query-input' />
         // </div>
-        <div className="search-input">
-            <div className="clear-query" onClick={handleClear} style={{ opacity: q ? 1 : 0 }}><img src={clearQueryImg} alt="clear icon shaqodoon" /></div>
-            <div className="search" onClick={handleSearch} ><img src={searchImg} alt="search icon shaqodoon" /></div>
-            <input value={q} onChange={(e) => handleQueryChande(e.target.value)} className='query-input' />
-        </div>
-    );
+            <div className="search-input">
+                <div className="clear-query" onClick={handleClear} style={{ opacity: q ? 1 : 0 }}><img src={clearQueryImg} alt="clear icon shaqodoon" /></div>
+                <div className id="wrap">
+                    <form action="" autocomplete="on">
+                    <input id="search_input" name="search" type="text" placeholder="What're we looking for ?" onKeyDown={handleSearch}/> 
+                    <input id="search_submit" value="Rechercher" onClick={toggleSearch} /> 
+                    </form>
+                </div>
+            </div>
+         );
 };
 
 const mapStateToProps = ({ search }) => ({
