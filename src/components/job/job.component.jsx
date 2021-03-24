@@ -16,7 +16,7 @@ const Job = ({
 
     const handleClickCity = () => {
         setIsLoading(true);
-        setCity(city);
+        setCity(encodeURIComponent(city));
     }
 
     const handleClickCountry = () => {

@@ -7,7 +7,7 @@ const SearchSelection = ({ searchSelection, handleClick }) => {
 
     return (
         <div className="search_selection" style={{ display: searchSelection ? '' : 'none' }}>
-            <p>{searchSelection}</p>
+            <p dangerouslySetInnerHTML={{ __html: decodeURIComponent(searchSelection) }}></p>
             <img src={iconXImg} alt="shaqodoon close icon" onClick={handleClick} />
         </div>
     );

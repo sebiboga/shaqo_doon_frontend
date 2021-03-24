@@ -25,11 +25,10 @@ const AllJobs = ({
     const location = useLocation();
 
     useEffect(() => {
-        // console.log('control')
         const query = location.search;
         if (query) {
             const params = new URLSearchParams(query);
-            // console.log(params)
+
             const city = params.get('city');
             const country = params.get('country');
             const company = params.get('company');
@@ -50,7 +49,7 @@ const AllJobs = ({
     const createQuery = () => {
         let query = []
         if (city) {
-            query.push(`city=${city}`)
+            query.push(`city=${encodeURIComponent(city)}`)
         }
         if (country) {
             query.push(`country=${country}`)
@@ -62,13 +61,11 @@ const AllJobs = ({
             query.push(`q=${q.trim().replace(/ /g, '+')}`)
         }
 
-        // console.log(query)
         query = `?${query.join('&')}`
-        // console.log(query)
 
         history.push({ 'search': query })
 
-        return query;
+        return decodeURIComponent(query);
     }
 
     // console.log(q.trim().replace(/\s+/g, '+'))
