@@ -63,7 +63,7 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
                 <div className="clear-query" onClick={handleClear} style={{ opacity: q ? 1 : 0 }}><img src={clearQueryImg} alt="clear icon shaqodoon" /></div>
                 <div className id="wrap">
                     <form action="" autocomplete="on">
-                    <input id="search_input" name="search" type="text" placeholder="What're we looking for ?" onKeyDown={handleSearch}/> 
+                    <input id="search_input" name="search" type="text" placeholder="What're we looking for ?" onKeyDown={handleSearch} onChange={(e) => handleQueryChande(e.target.value)}/> 
                     <input id="search_submit" value="Rechercher" onClick={toggleSearch} /> 
                     </form>
                 </div>
