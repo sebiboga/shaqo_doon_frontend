@@ -60,6 +60,7 @@
       z-index: 1;
       border-bottom: 1px solid #BBB;
       cursor: text;
+      font-family: 'Montserrat', sans-serif ;
     }
 
     input#search_submit {
@@ -84,7 +85,9 @@
     
     input#search_submit:hover {
       opacity: 0.8;
+      outline: none;
     }
+    
     .search-input {
       margin-left: 10px;
     }
