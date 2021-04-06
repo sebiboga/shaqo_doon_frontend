@@ -8,19 +8,29 @@ import { setIsLoading } from '../../redux/helpers/helpers.actions';
 import clearQueryImg from '../../assets/images/close-icon.png';
 import searchImg from '../../assets/images/search2.png';
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300display=swap');
+</style>
 
-const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
+
+function SearchInput({ q, setQuery, clearQuery, setIsLoading }) {
     const [reset, setReset] = useState(false);
 
     const handleClear = () => {
         setIsLoading(true);
         clearQuery();
-    }
+    };
 
-    const handleSearch = () => {
-        setIsLoading(true);
-        setReset(true);
-    }
+    const toggleSearch = () => {
+        document.querySelector("#search_input").classList.toggle("activ");
+    };
+
+    const handleSearch = (e) => {
+        if (e.keyCode == 13 && e.shiftKey == false) {
+            setIsLoading(true);
+            setReset(true);
+        }
+    };
 
     const handleQueryChande = (e) => {
         setQuery(e);
@@ -28,7 +38,7 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
             setIsLoading(true);
             setReset(false);
         }
-    }
+    };
 
     const detectEnterPress = () => {
         const theInput = document.getElementsByClassName('query-input')[0];
@@ -47,7 +57,7 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
             detectEnterPress()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []);
 
     return (
         // <div className="search-input">
@@ -57,11 +67,15 @@ const SearchInput = ({ q, setQuery, clearQuery, setIsLoading }) => {
         // </div>
         <div className="search-input">
             <div className="clear-query" onClick={handleClear} style={{ opacity: q ? 1 : 0 }}><img src={clearQueryImg} alt="clear icon shaqodoon" /></div>
-            <div className="search" onClick={handleSearch} ><img src={searchImg} alt="search icon shaqodoon" /></div>
-            <input value={q} onChange={(e) => handleQueryChande(e.target.value)} className='query-input' />
+            <div className id="wrap">
+                <form action="" autocomplete="on">
+                    <input id="search_input" name="search" type="text" placeholder="What're we looking for ?" onKeyDown={handleSearch} onChange={(e) => handleQueryChande(e.target.value)} />
+                    <input id="search_submit" value="Rechercher" onClick={toggleSearch} />
+                </form>
+            </div>
         </div>
     );
-};
+}
 
 const mapStateToProps = ({ search }) => ({
     q: search.q,
